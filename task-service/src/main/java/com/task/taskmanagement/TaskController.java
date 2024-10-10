@@ -35,6 +35,7 @@ public class TaskController {
 
     @PostMapping
     public Task createTask(@RequestBody Task task) {
+        System.out.println(task.toString());
         Task createdTask = taskService.createTask(task);
         taskEventPublisher.publishTaskCreatedEvent(createdTask);
         return createdTask;
