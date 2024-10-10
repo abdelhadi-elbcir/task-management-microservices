@@ -10,6 +10,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/users")
+@CrossOrigin
 public class UserController {
 
     @Autowired

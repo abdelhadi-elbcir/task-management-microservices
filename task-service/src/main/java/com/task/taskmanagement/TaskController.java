@@ -18,6 +18,11 @@ public class TaskController {
     @Autowired
     private TaskEventPublisher taskEventPublisher;
 
+    @GetMapping
+    public List<Task> getTasks() {
+        return taskService.getTasks();
+    }
+
     @GetMapping("/user/{userId}")
     public List<Task> getTasksByUserId(@PathVariable UUID userId) {
         return taskService.getTasksByUserId(userId);
