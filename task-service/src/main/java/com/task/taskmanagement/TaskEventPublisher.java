@@ -13,7 +13,7 @@ public class TaskEventPublisher {
     private RabbitTemplate rabbitTemplate;
 
     public void publishTaskCreatedEvent(Task task) {
-        rabbitTemplate.convertAndSend(RabbitMQConfig.TASK_EVENTS_QUEUE, task.toString());
+        rabbitTemplate.convertAndSend(RabbitMQConfig.TASK_EVENTS_QUEUE, "Tasl Created "+ task.getId());
     }
 
     public void publishTaskUpdatedEvent(Task task) {

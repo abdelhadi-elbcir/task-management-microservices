@@ -20,4 +20,5 @@ public class WebSocketController {
         notificationService.sendNotification(notification);
         return notification;
     }
+
 }
