@@ -38,25 +38,27 @@ public class TaskController {
         }
     }
 
+    
+
     @PostMapping
     public Task createTask(@RequestBody Task task) {
         System.out.println(task.toString());
         Task createdTask = taskService.createTask(task);
-        taskEventPublisher.publishTaskCreatedEvent(createdTask);
+        //taskEventPublisher.publishTaskCreatedEvent(createdTask);
         return createdTask;
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Task> updateTask(@PathVariable UUID id, @RequestBody Task taskDetails) {
         Task updatedTask = taskService.updateTask(id, taskDetails);
-        taskEventPublisher.publishTaskUpdatedEvent(updatedTask);
+        //taskEventPublisher.publishTaskUpdatedEvent(updatedTask);
         return ResponseEntity.ok(updatedTask);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteTask(@PathVariable UUID id) {
         taskService.deleteTask(id);
-        taskEventPublisher.publishTaskDeletedEvent(id);
+        //taskEventPublisher.publishTaskDeletedEvent(id);
         return ResponseEntity.noContent().build();
     }
 }
